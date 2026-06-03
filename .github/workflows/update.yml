@@ -1,0 +1,75 @@
+name: Update Leaderboard
+
+on:
+  schedule:
+    # 每 6 小时运行一次
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      skip_if_unchanged:
+        description: "若数据无变化则跳过发布"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: |
+          pip install httpx beautifulsoup4 pyyaml jinja2 click lxml
+
+      - name: Fetch data, score and generate site
+        id: generate
+        run: |
+          python3 -m src.cli update \
+            --season 2025-26 \
+            --guesses data/guess.csv \
+            --artifacts-dir artifacts \
+            --site-dir site \
+            --config-dir config \
+            ${{ github.event.inputs.skip_if_unchanged == 'true' && '--skip-if-unchanged' || '' }}
+        env:
+          PYTHONPATH: .
+
+      - name: Upload artifacts for debugging
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts-${{ github.run_id }}
+          path: artifacts/
+          retention-days: 14
+
+      - name: Setup GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site to Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

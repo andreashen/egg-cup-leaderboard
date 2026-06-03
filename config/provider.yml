@@ -1,0 +1,15 @@
+provider: premierleague
+base_url: "https://footballapi.pulselive.com/football"
+standings_url: "https://footballapi.pulselive.com/football/standings?compSeasons={season_id}&altIds=true&detail=2&COMP=1&live=true"
+season_url: "https://footballapi.pulselive.com/football/competitions/1/compseasons?page=0&pageSize=10&detail=2&COMP=1&COMP_SEASON=418"
+fixtures_url: "https://footballapi.pulselive.com/football/fixtures?compSeasons={season_id}&teams={team_ids}&page={page}&pageSize=40&sort=desc&statuses=C&altIds=true&COMP=1"
+
+# 当前赛季编号（可通过 season_url 自动发现，或手动配置）
+current_season_id: 719
+
+timeout_seconds: 30
+max_retries: 3
+retry_delay_seconds: 5
+
+# 抓取失败时行为: "fail" 表示整体失败，不发布半成品
+on_fetch_failure: fail
