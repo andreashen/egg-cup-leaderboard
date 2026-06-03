@@ -18,9 +18,14 @@ venv/
 # Local brainstorming artifacts
 .superpowers/
 
-# Generated project outputs
+# Generated project outputs (rebuilt by GitHub Actions)
 artifacts/
 site/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
 
 # Logs
 *.log

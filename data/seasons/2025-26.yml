@@ -1,0 +1,38 @@
+season_id: "2025-26"
+season_name: "2025/26 Premier League"
+baseline_season: "2024-25"
+
+# 本赛季参赛球队（20支）
+teams:
+  - Arsenal
+  - Aston Villa
+  - Bournemouth
+  - Brentford
+  - Brighton
+  - Chelsea
+  - Crystal Palace
+  - Everton
+  - Fulham
+  - Ipswich Town
+  - Leicester City
+  - Liverpool
+  - Manchester City
+  - Manchester United
+  - Newcastle United
+  - Nottingham Forest
+  - Southampton
+  - Tottenham Hotspur
+  - West Ham United
+  - Wolverhampton Wanderers
+
+# 本赛季升班马（英冠前三，按名次顺序映射英超18/19/20）
+promoted_teams:
+  - team: Leeds United
+    championship_rank: 1
+    baseline_epl_rank: 18
+  - team: Burnley
+    championship_rank: 2
+    baseline_epl_rank: 19
+  - team: Sunderland
+    championship_rank: 3
+    baseline_epl_rank: 20
