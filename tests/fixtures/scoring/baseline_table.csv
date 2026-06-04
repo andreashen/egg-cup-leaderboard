@@ -1,0 +1,13 @@
+rank,team_name,team_id,points,is_promoted
+1,利物浦,liv,84,false
+2,阿森纳,ars,74,false
+3,曼城,mci,71,false
+4,切尔西,che,69,false
+5,纽卡斯尔联,new,66,false
+6,阿斯顿维拉,avl,66,false
+15,曼联,mun,42,false
+16,狼队,wol,42,false
+17,托特纳姆热刺,tot,38,false
+18,利兹联,lee,,true
+19,伯恩利,bur,,true
+20,桑德兰,sun,,true

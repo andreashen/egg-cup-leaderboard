@@ -1,0 +1,45 @@
+{
+  "matchweek": 38,
+  "tables": [
+    {
+      "entries": [
+        {
+          "team": {
+            "name": "Arsenal",
+            "id": "3",
+            "shortName": "Arsenal",
+            "abbr": "ARS"
+          },
+          "overall": {
+            "played": 38,
+            "won": 26,
+            "drawn": 7,
+            "lost": 5,
+            "points": 85,
+            "position": 1,
+            "goalsFor": 71,
+            "goalsAgainst": 27
+          }
+        },
+        {
+          "team": {
+            "name": "Liverpool",
+            "id": "14",
+            "shortName": "Liverpool",
+            "abbr": "LIV"
+          },
+          "overall": {
+            "played": 38,
+            "won": 25,
+            "drawn": 8,
+            "lost": 5,
+            "points": 83,
+            "position": 2,
+            "goalsFor": 74,
+            "goalsAgainst": 32
+          }
+        }
+      ]
+    }
+  ]
+}

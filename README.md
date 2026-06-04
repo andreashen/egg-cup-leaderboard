@@ -23,6 +23,18 @@
 本项目目前采用 Python 作为数据处理和计分引擎，生成的页面以无框架依赖的静态网页为主。
 任何角色的开发者在接手或协作时，请首先阅读上述 `docs/` 目录下的文档，以对齐技术方案和计分逻辑。
 
+## 第一里程碑运行方式
+
+1. 安装依赖：`python -m pip install -e ".[dev]"`
+2. 检查或调整 `config/provider.yml` 中的积分榜抓取入口配置。
+3. 执行数据链路：`eggcup-pipeline`
+4. 查看输出目录：`artifacts/raw/<season>/standings.json`、`artifacts/normalized/<season>/standings.json` 和 `artifacts/normalized/<season>/metadata.json`
+
+## 计分引擎下一步
+
+- 输入：竞猜 CSV、球队别名表、上赛季基线积分榜、当前 `standings.json`
+- 输出：玩家总分、排名、前四明细、黑马明细、黑驴明细
+
 ## 目录结构概览
 
 - `data/`: 保存玩家竞猜 CSV、赛季配置、球队基线数据等静态输入。

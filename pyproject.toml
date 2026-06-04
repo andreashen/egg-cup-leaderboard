@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "egg-cup-leaderboard"
+version = "0.1.0"
+description = "Premier League prediction leaderboard pipeline"
+requires-python = ">=3.9"
+dependencies = [
+  "httpx>=0.27.0",
+  "pydantic>=2.7.0",
+  "pyyaml>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "pytest-httpx>=0.30.0",
+]
+
+[project.scripts]
+eggcup-pipeline = "eggcup_leaderboard.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

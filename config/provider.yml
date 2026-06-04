@@ -1,0 +1,6 @@
+season: 2025-26
+base_url: https://sdp-prem-prod.premier-league-prod.pulselive.com/api
+timeout_seconds: 15
+retries: 2
+endpoints:
+  standings: /v5/competitions/8/seasons/2025/standings
